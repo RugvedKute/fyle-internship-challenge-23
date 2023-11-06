@@ -1,5 +1,9 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">
-    Fyle Internship Challenge
-  </div>
-</div>
+<ngx-ui-loader [fgsSize]="fgSize"  
+[bgsOpacity]="pbOpacity"
+[overlayColor]="overLayColor"
+[pbColor]="pbColor"
+></ngx-ui-loader>
+<main>
+  <router-outlet></router-outlet>
+</main>
+

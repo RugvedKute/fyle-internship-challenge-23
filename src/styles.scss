@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700&family=Montserrat&family=Open+Sans:wght@500&family=Poppins&family=Press+Start+2P&family=Vina+Sans&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'montserrat';
+}
+
