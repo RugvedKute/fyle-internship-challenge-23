@@ -1,24 +1,30 @@
 import { TestBed } from '@angular/core/testing';
 import { ApiService } from './api.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'; // Import HttpTestingController
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
-import { NgToastComponent, NgToastModule } from 'ng-angular-popup';
-import {HttpClientModule} from '@angular/common/http';
+import { NgToastModule } from 'ng-angular-popup';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ApiService', () => {
   let service: ApiService;
+  let httpTestingController: HttpTestingController; 
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        NgxUiLoaderModule,
+        NgToastModule,
+        HttpClientModule,
+        HttpClientTestingModule,
+      ],
+    });
+    
     service = TestBed.inject(ApiService);
-    imports: [
-      NgxUiLoaderModule,
-      NgToastModule,
-      HttpClientTestingModule
-    ]
+    httpTestingController = TestBed.inject(HttpTestingController); 
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 });
+

@@ -41,3 +41,66 @@ Run `ng serve` for a dev server. Navigate to http://localhost:4200/. The app wil
 
 Visit the [Angular Documentation](https://angular.io/guide/styleguide) to learn more.
 Styling is to be strictly done with [Tailwind](https://tailwindcss.com/docs/installation).
+
+
+## Setting up the project and running the app
+
+1) Prerequisites:
+
+Before running the test cases, ensure that you have the following prerequisites installed on your system:
+- [Node.js](https://nodejs.org/): Make sure you have Node.js installed.
+- [Angular CLI](https://cli.angular.io/): Install the Angular CLI globally using npm.
+
+2) Clone the repository:
+  -  Run the command: git clone https://github.com/RugvedKute/fyle-internship-challenge-23.git
+
+3) Open the terminal and go inside folder.
+  -  Run the command: cd fyle-internship-challenge
+
+4) Install Node dependencies
+  -  Run the command: npm install
+
+5) Run the App
+  - Run the command: ng serve
+
+
+## Running the test cases for the angular app.
+
+1) Prerequisites:
+
+Before running the test cases, ensure that you have the following prerequisites installed on your system:
+- [Node.js](https://nodejs.org/): Make sure you have Node.js installed.
+- [Angular CLI](https://cli.angular.io/): Install the Angular CLI globally using npm.
+
+2) Clone the repository:
+  -  Run the command: git clone https://github.com/RugvedKute/fyle-internship-challenge-23.git
+
+3) Open the terminal and go inside folder.
+  -  Run the command: cd fyle-internship-challenge
+
+4) Install Node dependencies
+  -  Run the command: npm install
+
+5) Run the command for entire app test cases (optional)
+  - Run the command: ng test
+  - This will run the test suite using Jasmine and Karma. The test results will be displayed in the terminal.
+
+6) Run the command for single file test cases 
+  We have test cases written in two files:
+    - app.component.spec.ts (component)
+    - data-service.service.spec.ts (service)
+
+  To run app component, We have command: ng test --include=src/app/app.component.spec.ts
+  To run data Service, We have command: ng test --include=src/app/services/data/data-service.service.spec.ts
+
+7) Generate coverage report
+  - Run the command: ng test --code-coverage
+
+
+
+## Improvements
+
+1) Could have used accordian instead of cards so the size would be consistent.
+2) Implemented search bar using search pipe, as it would be diffcult to find repo in 100 repos.
+
+

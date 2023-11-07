@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { NgToastModule } from 'ng-angular-popup';
 import { RouterTestingModule } from "@angular/router/testing";
+import { Constants } from './constants/constants';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -28,10 +29,14 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('fyle-frontend-challenge');
   });
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('.content span')?.textContent).toContain('fyle-frontend-challenge app is running!');
-  // });
+  it('should have constants property set', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.fgSize).toEqual(Constants.GLOBAL_LOADER_FGSSIZE);
+    expect(app.overLayColor).toEqual(Constants.GLOBAL_LOADER_OVERLAYCOLOR);
+    expect(app.pbOpacity).toEqual(Constants.GLOBAL_LOADER_BGSOPACITY);
+    expect(app.pbColor).toEqual(Constants.GLOBAL_LOADER_PBCOLOR);
+  })
+
+
 });

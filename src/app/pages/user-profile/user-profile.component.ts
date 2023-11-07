@@ -52,12 +52,14 @@ export class UserProfileComponent implements OnInit {
 
 getPage(pageNumber: any) {
   this.pageNo = pageNumber
+
   this.getReposData(this.userName, this.repoPerPage, this.pageNo)
 
 }
 
 setItemsPerPage(repos: any) {
   this.repoPerPage = repos;
+  this.pageNo = 1;
   this.getReposData(this.userName, this.repoPerPage, this.pageNo);
 
 }
