@@ -3,37 +3,56 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Octokit } from '@octokit/core';
+import { Constants } from '../constants/constants';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { NgToastService } from 'ng-angular-popup';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private ngxloader: NgxUiLoaderService,
+    private toaster: NgToastService
+  ) {}
 
-  readonly environment = environment;
-  apiUrl = environment.API_URL;
-  token = environment.TOKEN;
+  readonly constant = Constants;
+  apiUrl = this.constant.API_URL;
+  token = this.constant.TOKEN;
 
   getUser(githubUsername: string): Observable<any> {
     return this.httpClient.get(this.apiUrl + `${githubUsername}`);
   }
 
-  // implement getRepos method by referring to the documentation. Add proper types for the return type and params
+  async getRepos(userName: string, perPage: number, page: number) {
+    this.ngxloader.start();
 
-  async getRepos(userName: string) {
-    const octokit = new Octokit({
-      auth: this.token,
-    });
+    try {
+      const octokit = new Octokit({
+        auth: this.token,
+      });
 
+      const response = await octokit.request(`GET /users/${userName}/repos`, {
+        username: userName,
+        per_page: perPage,
+        page: page,
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28',
+        },
+      });
+      this.ngxloader.stop();
+      return response;
+    } catch (error) {
+      console.log(error);
 
+      this.toaster.error({
+        detail: 'Error Occurred',
+        summary: String(error),
+        duration: 2000,
+      });
 
-    const response = await octokit.request(`GET /users/${userName}/repos`, {
-      username: userName,
-      headers: {
-        'X-GitHub-Api-Version': '2022-11-28',
-      },
-    });
-
-    return response;
+      return error;
+    }
   }
 }

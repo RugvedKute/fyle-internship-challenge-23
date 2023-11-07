@@ -1,8 +1,11 @@
-<div class="shadow-2xl rounded-lg p-4">
-  <h1 class="text-2xl font-bold">Heroes</h1>
+<div class="shadow-lg rounded-lg p-4 max-h-fit">
+  <h1 *ngIf="singleRepoData?.name" class="text-2xl font-bold">{{singleRepoData.name}}</h1>
   <p class="text-[14px] mt-2"
-  >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto, molestias nostrum saepe ut, temporibus ratione similique ab facilis nulla ea tempore cumque iure pariatur nisi assumenda adipisci eius in nobis!</p>
-    <div class="mt-2">
-      <app-chip name="Rugved"  ></app-chip>
+  *ngIf="singleRepoData?.description"
+  >{{singleRepoData?.description}}</p>
+  <ng-container *ngIf="singleRepoData?.topics">
+    <div class="mt-2 flex flex-wrap">
+      <app-chip *ngFor="let topic of singleRepoData?.topics" name="{{topic}}"></app-chip>
     </div>
+  </ng-container>
 </div>

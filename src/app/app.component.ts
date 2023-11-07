@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component} from '@angular/core';
+import { Constants } from './constants/constants';
 import { ApiService } from './services/api.service';
 
 @Component({
@@ -7,17 +7,13 @@ import { ApiService } from './services/api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  constructor(
-    private apiService: ApiService
-  ) {}
+export class AppComponent {
+  title = 'fyle-frontend-challenge';
+  readonly constant = Constants;
+  fgSize = this.constant.GLOBAL_LOADER_FGSSIZE;
+  overLayColor = this.constant.GLOBAL_LOADER_OVERLAYCOLOR;
+  pbColor = this.constant.GLOBAL_LOADER_PBCOLOR;
+  pbOpacity = this.constant.GLOBAL_LOADER_BGSOPACITY;
 
-  fgSize = environment.GLOBAL_LOADER_FGSSIZE;
-  overLayColor = environment.GLOBAL_LOADER_OVERLAYCOLOR;
-  pbColor = environment.GLOBAL_LOADER_PBCOLOR;
-  pbOpacity = environment.GLOBAL_LOADER_BGSOPACITY;
-
-  ngOnInit() {
-    this.apiService.getUser('johnpapa').subscribe(console.log);
-  }
+  
 }

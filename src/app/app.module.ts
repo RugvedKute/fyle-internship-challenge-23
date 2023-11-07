@@ -13,6 +13,11 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { SearchBarComponent } from './shared/component/search-bar/search-bar.component';
 import { ChipComponent } from './shared/component/chip/chip.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgToastModule } from 'ng-angular-popup';
+import { AuthGuard } from './auth.guard';
+
+
 
 @NgModule({
   declarations: [
@@ -32,9 +37,14 @@ import { ChipComponent } from './shared/component/chip/chip.component';
     RouterModule,
     ReactiveFormsModule,
     NgxUiLoaderModule,
-    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
+    NgxPaginationModule,
+    NgToastModule,
+    NgxUiLoaderModule
+  
+
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

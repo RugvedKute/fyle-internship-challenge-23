@@ -8,6 +8,7 @@
     <div class="flex flex-col w-full mt-5">
         <label class="mb-2 uppercase tracking-wide font-bold text-xs text-grey-darkest" for="userName">UserName</label>
         <input class="border py-2 px-3 text-grey-darkest md:mr-2" type="text" name="userName" id="userName" formControlName="userName">
+        <span *ngIf="form.get('userName')?.touched && form.get('userName')?.invalid" class="text-red-500 text-sm">Please enter a valid username</span>
       </div>
       <button class="mt-3 border-3 bg-green-500 rounded-lg px-2 py-4 w-full text-white disabled:bg-green-400"  [disabled]="!this.form.valid">Submit</button>
     </form>
