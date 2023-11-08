@@ -1,6 +1,6 @@
 export const Constants = {
   API_URL: 'https://api.github.com/users/',
-  TOKEN: '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',
+  TOKEN: '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',
   GLOBAL_LOADER_FGSSIZE: 0,
   GLOBAL_LOADER_BGSOPACITY: 0.1,
   GLOBAL_LOADER_OVERLAYCOLOR: 'rgba(40, 40, 40, 0)',
