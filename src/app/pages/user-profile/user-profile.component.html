@@ -34,7 +34,7 @@
       <span>{{userData.html_url}}</span>
     </a>
   </div>
-  <ng-container *ngIf="reposList.length != 0; else repoListNone">
+  <ng-container *ngIf="reposList?.length != 0; else repoListNone">
   <div class="mt-2 grid grid-cols-2 p-8 pt-2 max-h-[50vh] gap-x-2 gap-y-1 overflow-y-scroll">
       <app-card *ngFor="let data of reposList |  paginate: { itemsPerPage: repoPerPage, currentPage: pageNo, totalItems: totalRepos }"
       [singleRepoData]="data"
